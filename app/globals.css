@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "jcz";
+  src: url("../public/fonts/JyutcitziWithSourceHanSerifTCExtraLight.ttf");
+  /* font-family: "MyCustomFont";
+  src: url("../public/fontss/MyCustomFont-Regular.woff2") format("woff2"),
+    url("../public/fontss/MyCustomFont-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  Include other styles or weights if necessary */
+}
+
+@font-face {
+  font-family: "hentaigana";
+  src: url("../public/fonts/UniHentaiKana-Regular.otf");
+}
+
+@font-face {
+  font-family: "BabelStoneHan";
+  src: url("../public/fonts/BabelStoneHan.ttf");
+}
+
+@font-face {
+  font-family: "biaoyinzi";
+  src: url("../public/fonts/Biaoyinzi-2016A.ttf");
+}
+
+body {
+  font-family: "jcz", sans-serif;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
