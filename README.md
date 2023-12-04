@@ -76,3 +76,18 @@ To learn more about Next.js, take a look at the following resources:
 - [Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/) - learn about Flask features and API.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Werkzeug
+
+If you just try to get this thing to run with `npm run dev`, and you try to visit localhost:3000/api/python, you'd get an error
+
+````shell
+[1]     from .app import Flask as Flask
+[1]   File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 30, in <module>
+[1]     from werkzeug.urls import url_quote
+[1] ImportError: cannot import name 'url_quote' from 'werkzeug.urls' (/opt/homebrew/lib/python3.11/site-packages/werkzeug/urls.py)
+[1]  ELIFECYCLE  Command failed with exit code 1.
+[1] pnpm run flask-dev exited with code 1```
+````
+
+To [fix this](https://stackoverflow.com/questions/77213053/why-did-flask-start-failing-with-importerror-cannot-import-name-url-quote-fr), just set a fix version for Werkzeug such as Werkzeug==2.2.2 in your requirements.txt and it should work.
