@@ -1,0 +1,3 @@
+[submodule "api/jyutcitzi-transliterate"]
+	path = api/jyutcitzi-transliterate
+	url = https://github.com/jyutcitzi/jyutcitzi-transliterate.git
