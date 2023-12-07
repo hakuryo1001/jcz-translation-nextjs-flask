@@ -1,0 +1,2 @@
+def sillyFunction(): 
+    return "silly"
