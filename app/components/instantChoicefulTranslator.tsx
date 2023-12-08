@@ -1,5 +1,11 @@
+// @ts-nocheck
+
 import React, { useState, useEffect, useCallback } from "react";
 import _ from "lodash";
+
+const URL = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
+  : "http://localhost:3000/api";
 
 function InstantChoicefulTranslator() {
   const [inputText, setInputText] = useState("");
@@ -204,27 +210,24 @@ function InstantChoicefulTranslator() {
   };
 
   const fetchTranslation = useCallback(
-    async (text) => {
+    async (text: string) => {
       try {
-        const response = await fetch(
-          "http://localhost:3000/api/instantChoicefulTranslate",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              text,
-              mode,
-              orthography,
-              useRepeatChar,
-              initialRBlock,
-              vBlock,
-              useSchwaChar,
-              toneConfig,
-            }),
-          }
-        );
+        const response = await fetch(`${URL}/instantChoicefulTranslate`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            text,
+            mode,
+            orthography,
+            useRepeatChar,
+            initialRBlock,
+            vBlock,
+            useSchwaChar,
+            toneConfig,
+          }),
+        });
         const data = await response.json();
         setTranslatedText(data.translatedText);
       } catch (error) {

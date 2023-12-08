@@ -2,12 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Translator from "./components/translator";
-import Dumb from "./components/dumb";
-
-import InstantTranslator from "./components/instantTranslator";
 import InstantChoicefulTranslator from "./components/instantChoicefulTranslator";
-import ChoicefulTranslator from "./components/choicefulTranslator";
 
 const s = {
   main: "min-h-full p-4 grid grid-cols-1 rounded-lg m-4 p-4 font-jcz",
@@ -30,28 +25,11 @@ export default function Home() {
           粵語，悲乃一無文學、無哲學、無科學的語言。何解我等受盡此等的文學貧況呼？唉，無非乃我地冇自己嘅文字噉解。
         </div>
       </div>
-      <div className="flex justify-center">
-        {/* <Image
-          src="/hakuryo_signature_final_white.png"
-          alt="Vercel Logo"
-          width={72}
-          height={16}
-        /> */}
-      </div>
+      <div className="flex justify-center"></div>
 
       <div className="flex flex-col">
         <InstantChoicefulTranslator />
-        {/* <Dumb /> */}
-        {/* <div>
-          咁都係果啲嘢㗎啦，廿鯪蚊個餐又湯又剩唔通有得你食天九翅咩？求求其其有啲肉有啲菜蛋白質澱粉質撈撈埋埋打個白汁茄汁黑椒汁咁撐得你懵口懵面咪纍返去返工返學返廠返寫字樓囉。唔係你估真係搵餐晏仔咁簡單啊。咁跟飯定跟意粉啊？
-        </div> */}
-
-        {/* <Translator /> */}
-        {/* <div> Choiceful translator </div> */}
-        {/* <ChoicefulTranslator /> */}
-        {/* <InstantTranslator /> */}
       </div>
-      <div></div>
     </main>
   );
 }

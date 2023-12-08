@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { IoIosInformationCircle } from "react-icons/io";
 import { FaReddit } from "react-icons/fa";
-
 import { links } from "./links";
+
 const Footer = () => {
   const router = useRouter();
   return (

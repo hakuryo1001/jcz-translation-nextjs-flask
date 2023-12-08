@@ -157,6 +157,11 @@
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
 
+"@types/lodash@^4.14.202":
+  "integrity" "sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ=="
+  "resolved" "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.202.tgz"
+  "version" "4.14.202"
+
 "@types/node@20.1.4":
   "integrity" "sha512-At4pvmIOki8yuwLtd7BNHl3CiWNbtclUbNtScGx4OHfBd4/oWoJC8KRCIxXwkdndzhxOsPXihrsOoydxBjlE9Q=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-20.1.4.tgz"
