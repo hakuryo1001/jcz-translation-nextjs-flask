@@ -3,7 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import Translator from "./components/translator";
-import Dumb from "./components/Dumb";
+import Dumb from "./components/dumb";
+
+import InstantTranslator from "./components/InstantTranslator";
+ from "./components/translator";
 
 const s = {
   main: "min-h-full p-4 grid grid-cols-1 rounded-lg m-4 p-4 font-jcz",
@@ -35,7 +38,8 @@ export default function Home() {
       <div className="flex flex-col">
         <div className="flex justify-center p-8 text-justify">#</div>
         <Dumb />
-        <Translator />
+        {/* <Translator /> */}
+        <InstantTranslator />
       </div>
       <div></div>
     </main>
