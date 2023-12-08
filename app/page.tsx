@@ -35,7 +35,7 @@ export default function Home() {
       <div className="flex flex-col">
         <div className="flex justify-center p-8 text-justify">#</div>
         <Dumb />
-        {/* <Translator /> */}
+        <Translator />
       </div>
       <div></div>
     </main>
