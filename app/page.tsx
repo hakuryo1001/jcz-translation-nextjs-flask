@@ -5,8 +5,9 @@ import Link from "next/link";
 import Translator from "./components/translator";
 import Dumb from "./components/dumb";
 
-import InstantTranslator from "./components/InstantTranslator";
- from "./components/translator";
+import InstantTranslator from "./components/instantTranslator";
+import InstantChoicefulTranslator from "./components/instantChoicefulTranslator";
+import ChoicefulTranslator from "./components/choicefulTranslator";
 
 const s = {
   main: "min-h-full p-4 grid grid-cols-1 rounded-lg m-4 p-4 font-jcz",
@@ -38,8 +39,16 @@ export default function Home() {
       <div className="flex flex-col">
         <div className="flex justify-center p-8 text-justify">#</div>
         <Dumb />
+        <div>
+          咁都係果啲嘢㗎啦，廿鯪蚊個餐又湯又剩唔通有得你食天九翅咩？求求其其有啲肉有啲菜蛋白質澱粉質撈撈埋埋打個白汁茄汁黑椒汁咁撐得你懵口懵面咪纍返去返工返學返廠返寫字樓囉。唔係你估真係搵餐晏仔咁簡單啊。咁跟飯定跟意粉啊？
+        </div>
+        <div> Translator </div>
         {/* <Translator /> */}
-        <InstantTranslator />
+        {/* <div> Choiceful translator </div> */}
+        {/* <ChoicefulTranslator /> */}
+        {/* <InstantTranslator /> */}
+        <div>Instant choiceful translator</div>
+        <InstantChoicefulTranslator />
       </div>
       <div></div>
     </main>
