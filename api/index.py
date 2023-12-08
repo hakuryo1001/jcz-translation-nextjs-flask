@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify
-# from flask_cors import CORS
+from flask_cors import CORS
 from api.silly import silly
 from api.jcz import transliterate
 # Rest of your Flask app code...
 
 app = Flask(__name__)
-# CORS(app)
+CORS(app)
 
 @app.route("/api/python")
 def hello_world():
@@ -20,8 +20,9 @@ def s():
 
 @app.route("/api/dumb-jcz")
 def translate_text():
-    s = transliterate.pipe_transliterator("咁都係果啲嘢㗎啦，廿鯪蚊個餐又湯又剩唔通有得你食天九翅咩？求求其其有啲肉有啲菜蛋白質澱粉質撈撈埋埋打個白汁茄汁黑椒汁咁撐得你懵口懵面咪纍返去返工返學返廠返寫字樓囉。唔係你估真係搵餐晏仔咁簡單啊。咁跟飯定跟意粉啊？")
-    return f'<p>{s}</p>'
+    translated_text = transliterate.pipe_transliterator("咁都係果啲嘢㗎啦，廿鯪蚊個餐又湯又剩唔通有得你食天九翅咩？求求其其有啲肉有啲菜蛋白質澱粉質撈撈埋埋打個白汁茄汁黑椒汁咁撐得你懵口懵面咪纍返去返工返學返廠返寫字樓囉。唔係你估真係搵餐晏仔咁簡單啊。咁跟飯定跟意粉啊？")
+    # return f'<p>{s}</p>'
+    return (jsonify({"translatedText": translated_text}))
 
 
 @app.route("/api/translate", methods=["POST"])

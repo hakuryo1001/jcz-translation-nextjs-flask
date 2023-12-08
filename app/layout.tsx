@@ -15,19 +15,46 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div>
-      {/* <Head></Head> */}
-
-      <Navbar />
-      <main className="min-h-screen flex place-items-center justify-center bg-black">
-        <div className="container xl:w-1/2 lg:w-3/4 md:w-3/4 sm:w-3/4 ">
-          {children}
-        </div>
-      </main>
-      <Footer />
-    </div>
-    // <html lang="en">
-    //   <body className={inter.className}>{children}</body>
-    // </html>
+    <html lang="en">
+      <head>
+        {/* ... Any head elements (like meta tags, title, etc.) ... */}
+        {/* Don't forget to include the font */}
+        {/* {inter.style} */}
+      </head>
+      <body>
+        <Navbar />
+        <main className="min-h-screen flex place-items-center justify-center bg-black">
+          <div className="container xl:w-1/2 lg:w-3/4 md:w-3/4 sm:w-3/4 ">
+            {children}
+          </div>
+        </main>
+        <Footer />
+      </body>
+    </html>
   );
 }
+
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode;
+// }) {
+//   return (
+//     <div>
+//       {/* <Head></Head> */}
+//       <Navbar />
+//       <main className="min-h-screen flex place-items-center justify-center bg-black">
+//         <div className="container xl:w-1/2 lg:w-3/4 md:w-3/4 sm:w-3/4 ">
+//           {children}
+//         </div>
+//       </main>
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// {
+//   /* <html lang="en">
+//   <body className={inter.className}>{children}</body>
+// </html>; */
+// }
