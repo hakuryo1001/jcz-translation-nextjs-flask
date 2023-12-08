@@ -272,18 +272,19 @@ function InstantChoicefulTranslator() {
         <ChooseUseSchwarChar />
         <ChooseToneConfig />
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div className="flex flex-cols-2 space-x-10 justify-center">
+        {/* <div style={{ display: "flex", justifyContent: "space-between" }}> */}
         <div>
           <textarea
             value={inputText}
-            className="text-black font-black"
+            className="text-black font-black bg-gray-400 p-2 rounded-lg"
             onChange={handleInputChange}
             placeholder="Enter text to translate"
             style={{ width: 300, height: 200 }}
           />
         </div>
         <div
-          className="text-blue-400"
+          className="text-blue-900 bg-gray-900 rounded-lg p-2 font-white"
           style={{
             width: 300,
             height: 200,
