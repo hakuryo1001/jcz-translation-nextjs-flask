@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from api.silly import silly
 from api.jcz import transliterate
 # Rest of your Flask app code...
 
@@ -13,10 +12,6 @@ def hello_world():
 
 
 
-@app.route("/api/silly")
-def s():
-    text = silly.sillyFunction()
-    return  f"<p>{text}</p>"
 
 @app.route("/api/dumb-jcz")
 def translate_text():

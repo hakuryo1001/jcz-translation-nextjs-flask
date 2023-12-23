@@ -3,9 +3,10 @@
 import React, { useState, useEffect, useCallback } from "react";
 import _ from "lodash";
 
-const URL = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
-  : "http://localhost:3000/api";
+const URL = "http://localhost:3000/api";
+//  process.env.NEXT_PUBLIC_VERCEL_URL
+//   ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
+//   : "http://localhost:3000/api";
 
 function InstantChoicefulTranslator() {
   const [inputText, setInputText] = useState("");
@@ -287,7 +288,7 @@ function InstantChoicefulTranslator() {
           />
         </div>
         <div
-          className="text-blue-900 bg-gray-900 rounded-lg p-2 font-white"
+          className="text-white font-bold bg-gray-900 rounded-lg p-2 font-white"
           style={{
             width: 300,
             height: 200,

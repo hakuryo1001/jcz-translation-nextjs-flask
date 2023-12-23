@@ -23,7 +23,7 @@ export default function RootLayout({
       </head>
       <body>
         <Navbar />
-        <main className="min-h-screen flex place-items-center justify-center bg-black">
+        <main className="min-h-screen flex place-items-center justify-center bg-black text-white">
           <div className="container xl:w-1/2 lg:w-3/4 md:w-3/4 sm:w-3/4 ">
             {children}
           </div>
