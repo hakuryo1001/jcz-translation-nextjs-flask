@@ -1,4 +1,4 @@
-#!/Users/hongjan/Documents/old-jcz-flask/jcz-translation-nextjs-flask/venv/bin/python3.11
+#!/Users/hongjan/Documents/jcz-translation-nextjs-flask/venv/bin/python3.11
 # -*- coding: utf-8 -*-
 import re
 import sys

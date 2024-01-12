@@ -1,93 +1,97 @@
-<p align="center">
-  <a href="https://nextjs-flask-starter.vercel.app/">
-    <img src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="96">
-    <h3 align="center">Next.js Flask Starter</h3>
-  </a>
-</p>
+# wordseg
 
-<p align="center">Simple Next.js boilerplate that uses <a href="https://flask.palletsprojects.com/">Flask</a> as the API backend.</p>
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4077433.svg)](https://doi.org/10.5281/zenodo.4077433)
+[![PyPI version](https://badge.fury.io/py/wordseg.svg)](https://pypi.org/project/wordseg)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/wordseg.svg)](https://pypi.org/project/wordseg)
+[![CircleCI](https://circleci.com/gh/jacksonllee/wordseg/tree/main.svg?style=svg)](https://circleci.com/gh/jacksonllee/wordseg/tree/main)
 
-<br/>
+`wordseg` is a Python package of word segmentation models.
 
-## Introduction
+Table of contents:
 
-This is a hybrid Next.js + Python app that uses Next.js as the frontend and Flask as the API backend. One great use case of this is to write Next.js apps that use Python AI libraries on the backend.
+* [Installation](https://github.com/jacksonllee/wordseg#installation)
+* [Usage](https://github.com/jacksonllee/wordseg#usage)
+* [License](https://github.com/jacksonllee/wordseg#license)
+* [Changelog](https://github.com/jacksonllee/wordseg#changelog)
+* [Citation](https://github.com/jacksonllee/wordseg#citation)
 
-## How It Works
+## Installation
 
-The Python/Flask server is mapped into to Next.js app under `/api/`.
-
-This is implemented using [`next.config.js` rewrites](https://github.com/vercel/examples/blob/main/python/nextjs-flask/next.config.js) to map any request to `/api/:path*` to the Flask API, which is hosted in the `/api` folder.
-
-On localhost, the rewrite will be made to the `127.0.0.1:5328` port, which is where the Flask server is running.
-
-In production, the Flask server is hosted as [Python serverless functions](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python) on Vercel.
-
-## Demo
-
-https://nextjs-flask-starter.vercel.app/
-
-## Deploy Your Own
-
-You can clone & deploy it to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-title=Next.js%20Flask%20Starter&demo-description=Simple%20Next.js%20boilerplate%20that%20uses%20Flask%20as%20the%20API%20backend.&demo-url=https%3A%2F%2Fnextjs-flask-starter.vercel.app%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F795TzKM3irWu6KBCUPpPz%2F44e0c6622097b1eea9b48f732bf75d08%2FCleanShot_2023-05-23_at_12.02.15.png&project-name=Next.js%20Flask%20Starter&repository-name=nextjs-flask-starter&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fnextjs-flask&from=vercel-examples-repo)
-
-## Developing Locally
-
-You can clone & create this repo with the following command
+`wordseg` is available through pip:
 
 ```bash
-npx create-next-app nextjs-flask --example "https://github.com/vercel/examples/tree/main/python/nextjs-flask"
+pip install wordseg
 ```
 
-## Getting Started
-
-First, install the dependencies:
+To install `wordseg` from the GitHub source:
 
 ```bash
-npm install
-# or
-yarn
-# or
-pnpm install
+git clone https://github.com/jacksonllee/wordseg.git
+cd wordseg
+pip install -r dev-requirements.txt  # For running the linter and tests
+pip install -e .
 ```
 
-Then, run the development server:
+## Usage
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+`wordseg` implements a word segmentation model as a Python class.
+An instantiated model class object has the following methods
+(emulating the scikit-learn-styled API for machine learning):
+
+* `fit`: Train the model with segmented sentences.
+* `predict`: Predict the segmented sentences from unsegmented sentences.
+
+The implemented model classes are as follows:
+
+* `RandomSegmenter`:
+  Segmentation is predicted at random at each potential word
+  boundary independently for some given probability. No training is required.
+* `LongestStringMatching`: 
+  This model constructs predicted words by moving
+  from left to right along an unsegmented sentence and
+  finding the longest matching words, constrained by a maximum word length parameter.
+
+Sample code snippet:
+
+```python
+from wordseg import LongestStringMatching
+
+# Initialize a model.
+model = LongestStringMatching(max_word_length=4)
+
+# Train the model.
+# `fit` takes an iterable of segmented sentences (a tuple or list of strings).
+model.fit(
+    [
+        ("this", "is", "a", "sentence"),
+        ("that", "is", "not", "a", "sentence"),
+    ]
+)
+
+# Make some predictions; `predict` gives a generator, which is materialized by list() here.
+list(model.predict(["thatisadog", "thisisnotacat"]))
+# [['that', 'is', 'a', 'd', 'o', 'g'], ['this', 'is', 'not', 'a', 'c', 'a', 't']]
+# We can't get 'dog' and 'cat' because they aren't in the training data.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Citation
 
-The Flask server will be running on [http://127.0.0.1:5328](http://127.0.0.1:5328) – feel free to change the port in `package.json` (you'll also need to update it in `next.config.js`).
+Lee, Jackson L. 2020. wordseg: Word segmentation models in Python. https://doi.org/10.5281/zenodo.4077433
 
-## Learn More
+```bibtex
+@software{leengrams,
+  author       = {Jackson L. Lee},
+  title        = {wordseg: Word segmentation models in Python},
+  year         = 2020,
+  doi          = {10.5281/zenodo.4077433},
+  url          = {https://doi.org/10.5281/zenodo.4077433}
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/) - learn about Flask features and API.
+MIT License. Please see [`LICENSE.txt`](https://github.com/jacksonllee/wordseg/blob/main/LICENSE.txt).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Changelog
 
-## Werkzeug
-
-If you just try to get this thing to run with `npm run dev`, and you try to visit localhost:3000/api/python, you'd get an error
-
-````shell
-[1]     from .app import Flask as Flask
-[1]   File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 30, in <module>
-[1]     from werkzeug.urls import url_quote
-[1] ImportError: cannot import name 'url_quote' from 'werkzeug.urls' (/opt/homebrew/lib/python3.11/site-packages/werkzeug/urls.py)
-[1]  ELIFECYCLE  Command failed with exit code 1.
-[1] pnpm run flask-dev exited with code 1```
-````
-
-To [fix this](https://stackoverflow.com/questions/77213053/why-did-flask-start-failing-with-importerror-cannot-import-name-url-quote-fr), just set a fix version for Werkzeug such as Werkzeug==2.2.2 in your requirements.txt and it should work.
+Please see [`CHANGELOG.md`](https://github.com/jacksonllee/wordseg/blob/main/CHANGELOG.md).

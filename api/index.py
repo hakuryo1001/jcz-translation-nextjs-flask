@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from api.jcz import transliterate
+
 # Rest of your Flask app code...
 
 app = Flask(__name__)
