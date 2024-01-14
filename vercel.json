@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/**/*.py": {
-      "excludeFiles": "venv/**"
+      "excludeFiles": "**/__pycache__/**"
     }
   }
 }
