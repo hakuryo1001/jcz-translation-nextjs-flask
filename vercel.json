@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/**/*.py": {
-      "excludeFiles": "api/jcz/cmudict.db"
-    }
-  }
-}
