@@ -267,7 +267,7 @@ function InstantChoicefulTranslator() {
 
   return (
     <div>
-      <div className="flex flex-col-6 m-4 bg-gray-950 p-4 space-x-3">
+      <div className="flex flex-col-6 m-4 bg-gray-950 p-4 space-x-3 justify-center">
         <ChooseMode />
         <ChooseOrthography />
         <ChooseRepeatChar />

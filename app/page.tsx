@@ -27,7 +27,7 @@ export default function Home() {
       </div>
       <div className="flex justify-center"></div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col justify-center">
         <InstantChoicefulTranslator />
       </div>
     </main>
